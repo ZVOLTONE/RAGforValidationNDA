@@ -1,0 +1,12 @@
+venv/
+__pycache__/
+*.pyc
+.env
+
+graphify-env/
+graphify-out/
+
+chroma_db/
+
+CLAUDE.local.md
+.claude/settings.local.json

@@ -1,0 +1,370 @@
+{
+  "source": "UU-27-2022",
+  "status": "DRAFT - pasal jawaban (gold) disusun Claude, WAJIB dicek Daniel sebelum dipakai untuk keputusan tim",
+  "cases": [
+    {
+      "id": "pdp-01",
+      "query": "Vendor boleh menunjuk subkontraktor untuk memproses data pelanggan tanpa persetujuan tertulis dari perusahaan.",
+      "gold": [
+        "Pasal 51"
+      ],
+      "note": "51 ayat (4)-(5): prosesor wajib persetujuan tertulis pengendali sebelum melibatkan prosesor lain"
+    },
+    {
+      "id": "pdp-02",
+      "query": "Vendor membagikan data pribadi ke pihak ketiga tanpa persetujuan.",
+      "gold": [
+        "Pasal 51",
+        "Pasal 65",
+        "Pasal 20"
+      ],
+      "note": "kasus gagal nomic dari BE-06; 65 ayat (2) mengungkapkan, 20 dasar pemrosesan"
+    },
+    {
+      "id": "pdp-03",
+      "query": "Jika terjadi kebocoran data, vendor akan memberi tahu perusahaan dalam waktu 14 hari kerja.",
+      "gold": [
+        "Pasal 46"
+      ],
+      "note": "46 ayat (1): pemberitahuan tertulis paling lambat 3 x 24 jam"
+    },
+    {
+      "id": "pdp-04",
+      "query": "Perjanjian tidak mengatur kewajiban pelaporan insiden keamanan kepada pemilik data.",
+      "gold": [
+        "Pasal 46"
+      ],
+      "note": "klausul yang tidak ada (missing clause)"
+    },
+    {
+      "id": "pdp-05",
+      "query": "Setelah kontrak berakhir, vendor tidak wajib menghapus atau mengembalikan data pribadi.",
+      "gold": [
+        "Pasal 43",
+        "Pasal 44",
+        "Pasal 42"
+      ],
+      "note": "penghapusan, pemusnahan, pengakhiran pemrosesan"
+    },
+    {
+      "id": "pdp-06",
+      "query": "Vendor dapat menyimpan data pelanggan tanpa batas waktu.",
+      "gold": [
+        "Pasal 42",
+        "Pasal 44"
+      ],
+      "note": "masa retensi"
+    },
+    {
+      "id": "pdp-07",
+      "query": "Data pribadi pelanggan akan disimpan di server penyedia cloud yang berlokasi di luar negeri.",
+      "gold": [
+        "Pasal 56"
+      ],
+      "note": "transfer ke luar wilayah hukum RI"
+    },
+    {
+      "id": "pdp-08",
+      "query": "Vendor dapat menggunakan data yang diterima untuk keperluan pemasaran produknya sendiri.",
+      "gold": [
+        "Pasal 28",
+        "Pasal 51"
+      ],
+      "note": "pembatasan tujuan; 51 ayat (6) pemrosesan di luar perintah"
+    },
+    {
+      "id": "pdp-09",
+      "query": "Vendor tidak bertanggung jawab atas akses tidak sah ke sistem yang menyimpan data.",
+      "gold": [
+        "Pasal 39",
+        "Pasal 35"
+      ],
+      "note": "cegah akses tidak sah, langkah teknis keamanan"
+    },
+    {
+      "id": "pdp-10",
+      "query": "Vendor wajib menerapkan enkripsi dan kontrol keamanan teknis untuk melindungi data.",
+      "gold": [
+        "Pasal 35",
+        "Pasal 39"
+      ],
+      "note": ""
+    },
+    {
+      "id": "pdp-11",
+      "query": "Karyawan vendor yang mengakses data wajib menjaga kerahasiaan informasi tersebut.",
+      "gold": [
+        "Pasal 36"
+      ],
+      "note": ""
+    },
+    {
+      "id": "pdp-12",
+      "query": "Perusahaan berhak mengaudit dan mengawasi vendor yang memproses data atas namanya.",
+      "gold": [
+        "Pasal 37"
+      ],
+      "note": "pengawasan pihak yang terlibat pemrosesan"
+    },
+    {
+      "id": "pdp-13",
+      "query": "Vendor wajib mencatat log seluruh aktivitas pemrosesan data.",
+      "gold": [
+        "Pasal 31"
+      ],
+      "note": "perekaman kegiatan pemrosesan"
+    },
+    {
+      "id": "pdp-14",
+      "query": "Vendor akan memproses data kesehatan dan data biometrik karyawan.",
+      "gold": [
+        "Pasal 4",
+        "Pasal 34"
+      ],
+      "note": "data spesifik; penilaian dampak risiko tinggi"
+    },
+    {
+      "id": "pdp-15",
+      "query": "Persetujuan pengguna dianggap telah diberikan secara otomatis dengan menggunakan layanan.",
+      "gold": [
+        "Pasal 22",
+        "Pasal 23",
+        "Pasal 20"
+      ],
+      "note": "persetujuan tertulis/terekam, eksplisit; klausul tanpa persetujuan sah batal demi hukum"
+    },
+    {
+      "id": "pdp-16",
+      "query": "Pengguna dapat menarik persetujuan kapan saja dan vendor harus berhenti memproses datanya.",
+      "gold": [
+        "Pasal 40",
+        "Pasal 9"
+      ],
+      "note": ""
+    },
+    {
+      "id": "pdp-17",
+      "query": "Vendor menggunakan sistem pengambilan keputusan otomatis dan profiling terhadap pelanggan.",
+      "gold": [
+        "Pasal 10",
+        "Pasal 34"
+      ],
+      "note": ""
+    },
+    {
+      "id": "pdp-18",
+      "query": "Jika vendor diakuisisi atau melakukan merger, data pribadi akan dialihkan ke perusahaan baru.",
+      "gold": [
+        "Pasal 48"
+      ],
+      "note": ""
+    },
+    {
+      "id": "pdp-19",
+      "query": "Vendor tidak menunjuk petugas pelindungan data pribadi.",
+      "gold": [
+        "Pasal 53"
+      ],
+      "note": "DPO"
+    },
+    {
+      "id": "pdp-20",
+      "query": "Vendor memproses data di luar instruksi perusahaan.",
+      "gold": [
+        "Pasal 51"
+      ],
+      "note": "51 ayat (1) dan (6)"
+    },
+    {
+      "id": "pdp-21",
+      "query": "Vendor dapat menjual data pribadi pelanggan untuk memperoleh keuntungan.",
+      "gold": [
+        "Pasal 65",
+        "Pasal 67"
+      ],
+      "note": "larangan + pidana"
+    },
+    {
+      "id": "pdp-22",
+      "query": "Vendor akan memproses data pribadi anak di bawah umur.",
+      "gold": [
+        "Pasal 25"
+      ],
+      "note": "persetujuan orang tua/wali"
+    },
+    {
+      "id": "pdp-23",
+      "query": "Vendor wajib memperbaiki data pribadi yang tidak akurat dalam waktu 30 hari setelah permintaan.",
+      "gold": [
+        "Pasal 30",
+        "Pasal 6"
+      ],
+      "note": "30 ayat (1): paling lambat 3 x 24 jam"
+    },
+    {
+      "id": "pdp-24",
+      "query": "Permintaan akses data oleh pemilik data akan ditanggapi vendor dalam 14 hari.",
+      "gold": [
+        "Pasal 32",
+        "Pasal 7"
+      ],
+      "note": "32 ayat (2): akses paling lambat 3 x 24 jam"
+    },
+    {
+      "id": "pdp-25",
+      "query": "Vendor tidak wajib memberitahu pemilik data setelah datanya dihapus atau dimusnahkan.",
+      "gold": [
+        "Pasal 45"
+      ],
+      "note": ""
+    },
+    {
+      "id": "pdp-26",
+      "query": "Vendor dan perusahaan bersama-sama menentukan tujuan pemrosesan data pelanggan tanpa perjanjian pembagian peran dan tanggung jawab.",
+      "gold": [
+        "Pasal 18"
+      ],
+      "note": "pengendali bersama"
+    },
+    {
+      "id": "pdp-27",
+      "query": "Vendor tidak perlu menyimpan bukti persetujuan yang diberikan pengguna.",
+      "gold": [
+        "Pasal 24"
+      ],
+      "note": ""
+    },
+    {
+      "id": "pdp-28",
+      "query": "Formulir persetujuan tidak menjelaskan tujuan, jenis data, dan jangka waktu penyimpanan data.",
+      "gold": [
+        "Pasal 21"
+      ],
+      "note": ""
+    },
+    {
+      "id": "pdp-29",
+      "query": "Vendor memasang kamera CCTV dengan pengenalan wajah di area publik untuk mengidentifikasi pengunjung.",
+      "gold": [
+        "Pasal 17"
+      ],
+      "note": "teks OCR Pasal 17 sebagian hilang"
+    },
+    {
+      "id": "pdp-30",
+      "query": "Data pelanggan dapat dipindahkan ke perusahaan afiliasi vendor yang berada di Indonesia.",
+      "gold": [
+        "Pasal 55"
+      ],
+      "note": "transfer dalam negeri"
+    },
+    {
+      "id": "pdp-31",
+      "query": "Vendor sebagai pemroses data tidak tunduk pada kewajiban keamanan dan kerahasiaan yang berlaku bagi pengendali data.",
+      "gold": [
+        "Pasal 52"
+      ],
+      "note": "52 memberlakukan 29, 31, 35-39 ke prosesor"
+    },
+    {
+      "id": "pdp-32",
+      "query": "Vendor tidak wajib memastikan keakuratan dan konsistensi data yang diolahnya.",
+      "gold": [
+        "Pasal 29"
+      ],
+      "note": ""
+    },
+    {
+      "id": "pdp-33",
+      "query": "Pengguna tidak dapat meminta salinan datanya atau memindahkan datanya ke penyedia lain.",
+      "gold": [
+        "Pasal 13",
+        "Pasal 7"
+      ],
+      "note": "portabilitas"
+    },
+    {
+      "id": "pdp-34",
+      "query": "Vendor tidak menanggung ganti rugi kepada pemilik data atas pelanggaran pemrosesan data pribadi.",
+      "gold": [
+        "Pasal 12",
+        "Pasal 47"
+      ],
+      "note": ""
+    },
+    {
+      "id": "pdp-35",
+      "query": "Pemilik data tidak dapat meminta penundaan atau pembatasan pemrosesan datanya.",
+      "gold": [
+        "Pasal 11",
+        "Pasal 41"
+      ],
+      "note": ""
+    },
+    {
+      "id": "pdp-36",
+      "query": "Vendor tidak melakukan penilaian dampak pelindungan data sebelum memproses data dalam skala besar.",
+      "gold": [
+        "Pasal 34"
+      ],
+      "note": ""
+    },
+    {
+      "id": "pdp-37",
+      "query": "Vendor tidak wajib mengikuti perintah lembaga pengawas pelindungan data pribadi.",
+      "gold": [
+        "Pasal 49"
+      ],
+      "note": ""
+    },
+    {
+      "id": "pdp-38",
+      "query": "Pelanggaran ketentuan pelindungan data oleh vendor hanya dikenai teguran tanpa sanksi denda.",
+      "gold": [
+        "Pasal 57"
+      ],
+      "note": "sanksi administratif, denda maks 2%"
+    },
+    {
+      "id": "pdp-39",
+      "query": "Jika vendor berbentuk badan usaha melakukan tindak pidana data pribadi, hanya karyawan pelaksana yang bertanggung jawab.",
+      "gold": [
+        "Pasal 70"
+      ],
+      "note": "pidana korporasi"
+    },
+    {
+      "id": "pdp-40",
+      "query": "Vendor diberi waktu tiga tahun sejak undang-undang berlaku untuk menyesuaikan sistem pemrosesan datanya.",
+      "gold": [
+        "Pasal 74"
+      ],
+      "note": "masa penyesuaian 2 tahun"
+    },
+    {
+      "id": "pdp-41",
+      "query": "Vendor tidak memberikan informasi identitas, dasar hukum, dan tujuan penggunaan data kepada pemilik data.",
+      "gold": [
+        "Pasal 5",
+        "Pasal 21"
+      ],
+      "note": ""
+    },
+    {
+      "id": "pdp-42",
+      "query": "Vendor boleh memproses data pribadi penyandang disabilitas tanpa persetujuan yang bersangkutan atau walinya.",
+      "gold": [
+        "Pasal 26"
+      ],
+      "note": ""
+    },
+    {
+      "id": "pdp-43",
+      "query": "Data pribadi tetap diproses vendor setelah tujuan kontrak tercapai.",
+      "gold": [
+        "Pasal 42"
+      ],
+      "note": ""
+    }
+  ]
+}

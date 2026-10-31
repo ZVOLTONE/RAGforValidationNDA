@@ -1,0 +1,11 @@
+uu-27-2022.pdf
+data/
+chroma_db/
+venv/
+graphify-env/
+docs/Rulebook-Kartika-Cyber-Hackathon-2026.pdf
+docs/Syarat-dan-Ketentuan-Kartika-Cyber-Hackathon-2026.pdf
+.env
+backend/eval/results.md
+backend/eval/cek_kunci_pdp.md
+backend/eval/testset_pdp.json
