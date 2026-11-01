@@ -18,7 +18,7 @@
 - `backend/app/config.py`: baca `.env` di root (OLLAMA_URL, EMBED_MODEL, CHROMA_DB, COLLECTION) + `PREFIXES` per model. Path relatif di `.env` dihitung dari root proyek.
 - `backend/app/rag/ingest.py` (BE-06): PDF UU -> ekstrak per halaman (OCR kalau halaman berupa gambar) -> bersihkan kop halaman -> chunk per Pasal (batang tubuh & penjelasan dipisah) -> embedding via Ollama -> simpan ke ChromaDB. Ingest ulang mengganti data lama (tidak dobel).
 - `backend/app/rag/retrieval.py` (BE-07): kelas `Retriever` dengan `search(query, k, method, source)`; method `vector`/`bm25`/`hybrid` (RRF). Model embedding dibaca dari metadata koleksi. `copy_collection(model)` menyalin chunk ke koleksi model lain tanpa proses PDF ulang (mis. `legal_references__bge-m3`).
-- `backend/eval/`: `testset_pdp.json` (43 kasus, gold masih DRAFT, perlu dicek Daniel), `eval_retrieval.py` -> `results.md`, `cek_kunci.py` -> `cek_kunci_pdp.md` (lembar cek manual).
+- `backend/eval/`: `testset_pdp.json` (43 kasus; gold dicek reviewer AI buta + Daniel, lihat `review_buta.json`), `eval_retrieval.py` -> `results.md`, `cek_kunci.py` -> `cek_kunci_pdp.md` (lembar cek manual).
 - `backend/requirements.txt`: library backend. Nanti FastAPI masuk `backend/app/main.py`.
 - `docs/`: PRD, user flow, rulebook & S&K lomba. `data/legal/`: PDF UU sumber (dari peraturan.bpk.go.id).
 - Root: `.env.example`, `.gitignore`, `.vscode/settings.json` (interpreter venv, terminal CMD mulai di `backend`), `chroma_db/` (gitignore).
@@ -40,7 +40,7 @@
 - OCR memotong sebagian pasal (mis. Pasal 17, 64, 65 ayat 3, 76), jadi sebagian kegagalan retrieval berasal dari data, bukan model.
 - Model embedding untuk indexing dan query harus sama; ganti model = ingest ulang semua.
 - nomic butuh prefiks `search_document: ` (dokumen) dan `search_query: ` (query). bge-m3 tanpa prefiks (diatur `PREFIXES` di `app/config.py`).
-- nomic-embed-text lemah untuk teks hukum Indonesia. Eval 31 Okt 2026 (43 kasus PDP, k=5, Recall@5): nomic vektor 0,23; BM25 0,69; nomic hybrid 0,52; bge-m3 vektor 0,74; bge-m3 hybrid 0,78 (target PRD 0,80). Gold masih draft.
+- nomic-embed-text lemah untuk teks hukum Indonesia. Eval 1 Nov 2026 (43 kasus PDP, k=5, Recall@5): nomic vektor 0,22; BM25 0,69; nomic hybrid 0,48; bge-m3 vektor 0,71; bge-m3 hybrid 0,75 (target PRD 0,80). Gold: 38 disepakati reviewer AI buta, 5 diputuskan Daniel; belum dicek manusia satu per satu.
 
 ## Langkah berikutnya
 1. Cek gold di `backend/eval/testset_pdp.json`, jalankan ulang eval, putuskan model (kandidat kuat: bge-m3) SEBELUM KUHP/ITE di-ingest.

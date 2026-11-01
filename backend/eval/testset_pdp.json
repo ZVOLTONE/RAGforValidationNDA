@@ -1,6 +1,6 @@
 {
   "source": "UU-27-2022",
-  "status": "DRAFT - pasal jawaban (gold) disusun Claude, WAJIB dicek Daniel sebelum dipakai untuk keputusan tim",
+  "status": "38 kasus: kunci Claude disepakati reviewer AI buta (eval/review_buta.json); 5 kasus berbeda diputuskan Daniel (pdp-02, 09, 32, 34, 43), 1 Nov 2026. Belum dicek manusia satu per satu.",
   "cases": [
     {
       "id": "pdp-01",
@@ -14,11 +14,10 @@
       "id": "pdp-02",
       "query": "Vendor membagikan data pribadi ke pihak ketiga tanpa persetujuan.",
       "gold": [
-        "Pasal 51",
-        "Pasal 65",
-        "Pasal 20"
+        "Pasal 20",
+        "Pasal 65"
       ],
-      "note": "kasus gagal nomic dari BE-06; 65 ayat (2) mengungkapkan, 20 dasar pemrosesan"
+      "note": "51 dibuang: 'pihak ketiga' terlalu umum, belum tentu subkontraktor (keputusan Daniel)"
     },
     {
       "id": "pdp-03",
@@ -76,10 +75,11 @@
       "id": "pdp-09",
       "query": "Vendor tidak bertanggung jawab atas akses tidak sah ke sistem yang menyimpan data.",
       "gold": [
+        "Pasal 35",
         "Pasal 39",
-        "Pasal 35"
+        "Pasal 52"
       ],
-      "note": "cegah akses tidak sah, langkah teknis keamanan"
+      "note": "52 memberlakukan kewajiban keamanan pengendali ke prosesor/vendor (keputusan Daniel)"
     },
     {
       "id": "pdp-10",
@@ -270,9 +270,10 @@
       "id": "pdp-32",
       "query": "Vendor tidak wajib memastikan keakuratan dan konsistensi data yang diolahnya.",
       "gold": [
-        "Pasal 29"
+        "Pasal 29",
+        "Pasal 52"
       ],
-      "note": ""
+      "note": "52 memberlakukan Pasal 29 ke prosesor/vendor (keputusan Daniel)"
     },
     {
       "id": "pdp-33",
@@ -287,10 +288,9 @@
       "id": "pdp-34",
       "query": "Vendor tidak menanggung ganti rugi kepada pemilik data atas pelanggaran pemrosesan data pribadi.",
       "gold": [
-        "Pasal 12",
-        "Pasal 47"
+        "Pasal 12"
       ],
-      "note": ""
+      "note": "47 dibuang karena terlalu umum (keputusan Daniel)"
     },
     {
       "id": "pdp-35",
@@ -362,9 +362,10 @@
       "id": "pdp-43",
       "query": "Data pribadi tetap diproses vendor setelah tujuan kontrak tercapai.",
       "gold": [
-        "Pasal 42"
+        "Pasal 42",
+        "Pasal 43"
       ],
-      "note": ""
+      "note": "43 ayat (1) huruf a: hapus data yang tidak diperlukan lagi (keputusan Daniel)"
     }
   ]
 }

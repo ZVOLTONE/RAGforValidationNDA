@@ -15,14 +15,14 @@
 | Kasus | Klausul | Kunci | Hasil |
 |---|---|---|---|
 | [pdp-01](#pdp-01) | Vendor boleh menunjuk subkontraktor untuk memproses data pelanggan tanpa persetujuan tertulis dari perusahaan. | Pasal 51 | ✅ 1/1 |
-| [pdp-02](#pdp-02) | Vendor membagikan data pribadi ke pihak ketiga tanpa persetujuan. | Pasal 51, Pasal 65, Pasal 20 | ❌ 0/3 |
+| [pdp-02](#pdp-02) | Vendor membagikan data pribadi ke pihak ketiga tanpa persetujuan. | Pasal 20, Pasal 65 | ❌ 0/2 |
 | [pdp-03](#pdp-03) | Jika terjadi kebocoran data, vendor akan memberi tahu perusahaan dalam waktu 14 hari kerja. | Pasal 46 | ✅ 1/1 |
 | [pdp-04](#pdp-04) | Perjanjian tidak mengatur kewajiban pelaporan insiden keamanan kepada pemilik data. | Pasal 46 | ✅ 1/1 |
 | [pdp-05](#pdp-05) | Setelah kontrak berakhir, vendor tidak wajib menghapus atau mengembalikan data pribadi. | Pasal 43, Pasal 44, Pasal 42 | ✅ 3/3 |
 | [pdp-06](#pdp-06) | Vendor dapat menyimpan data pelanggan tanpa batas waktu. | Pasal 42, Pasal 44 | ❌ 0/2 |
 | [pdp-07](#pdp-07) | Data pribadi pelanggan akan disimpan di server penyedia cloud yang berlokasi di luar negeri. | Pasal 56 | ✅ 1/1 |
 | [pdp-08](#pdp-08) | Vendor dapat menggunakan data yang diterima untuk keperluan pemasaran produknya sendiri. | Pasal 28, Pasal 51 | ❌ 0/2 |
-| [pdp-09](#pdp-09) | Vendor tidak bertanggung jawab atas akses tidak sah ke sistem yang menyimpan data. | Pasal 39, Pasal 35 | ⚠️ 1/2 |
+| [pdp-09](#pdp-09) | Vendor tidak bertanggung jawab atas akses tidak sah ke sistem yang menyimpan data. | Pasal 35, Pasal 39, Pasal 52 | ⚠️ 1/3 |
 | [pdp-10](#pdp-10) | Vendor wajib menerapkan enkripsi dan kontrol keamanan teknis untuk melindungi data. | Pasal 35, Pasal 39 | ✅ 2/2 |
 | [pdp-11](#pdp-11) | Karyawan vendor yang mengakses data wajib menjaga kerahasiaan informasi tersebut. | Pasal 36 | ✅ 1/1 |
 | [pdp-12](#pdp-12) | Perusahaan berhak mengaudit dan mengawasi vendor yang memproses data atas namanya. | Pasal 37 | ❌ 0/1 |
@@ -45,9 +45,9 @@
 | [pdp-29](#pdp-29) | Vendor memasang kamera CCTV dengan pengenalan wajah di area publik untuk mengidentifikasi pengunjung. | Pasal 17 | ✅ 1/1 |
 | [pdp-30](#pdp-30) | Data pelanggan dapat dipindahkan ke perusahaan afiliasi vendor yang berada di Indonesia. | Pasal 55 | ✅ 1/1 |
 | [pdp-31](#pdp-31) | Vendor sebagai pemroses data tidak tunduk pada kewajiban keamanan dan kerahasiaan yang berlaku bagi pengendali data. | Pasal 52 | ❌ 0/1 |
-| [pdp-32](#pdp-32) | Vendor tidak wajib memastikan keakuratan dan konsistensi data yang diolahnya. | Pasal 29 | ✅ 1/1 |
+| [pdp-32](#pdp-32) | Vendor tidak wajib memastikan keakuratan dan konsistensi data yang diolahnya. | Pasal 29, Pasal 52 | ⚠️ 1/2 |
 | [pdp-33](#pdp-33) | Pengguna tidak dapat meminta salinan datanya atau memindahkan datanya ke penyedia lain. | Pasal 13, Pasal 7 | ✅ 2/2 |
-| [pdp-34](#pdp-34) | Vendor tidak menanggung ganti rugi kepada pemilik data atas pelanggaran pemrosesan data pribadi. | Pasal 12, Pasal 47 | ✅ 2/2 |
+| [pdp-34](#pdp-34) | Vendor tidak menanggung ganti rugi kepada pemilik data atas pelanggaran pemrosesan data pribadi. | Pasal 12 | ✅ 1/1 |
 | [pdp-35](#pdp-35) | Pemilik data tidak dapat meminta penundaan atau pembatasan pemrosesan datanya. | Pasal 11, Pasal 41 | ⚠️ 1/2 |
 | [pdp-36](#pdp-36) | Vendor tidak melakukan penilaian dampak pelindungan data sebelum memproses data dalam skala besar. | Pasal 34 | ✅ 1/1 |
 | [pdp-37](#pdp-37) | Vendor tidak wajib mengikuti perintah lembaga pengawas pelindungan data pribadi. | Pasal 49 | ✅ 1/1 |
@@ -56,7 +56,7 @@
 | [pdp-40](#pdp-40) | Vendor diberi waktu tiga tahun sejak undang-undang berlaku untuk menyesuaikan sistem pemrosesan datanya. | Pasal 74 | ✅ 1/1 |
 | [pdp-41](#pdp-41) | Vendor tidak memberikan informasi identitas, dasar hukum, dan tujuan penggunaan data kepada pemilik data. | Pasal 5, Pasal 21 | ✅ 2/2 |
 | [pdp-42](#pdp-42) | Vendor boleh memproses data pribadi penyandang disabilitas tanpa persetujuan yang bersangkutan atau walinya. | Pasal 26 | ✅ 1/1 |
-| [pdp-43](#pdp-43) | Data pribadi tetap diproses vendor setelah tujuan kontrak tercapai. | Pasal 42 | ✅ 1/1 |
+| [pdp-43](#pdp-43) | Data pribadi tetap diproses vendor setelah tujuan kontrak tercapai. | Pasal 42, Pasal 43 | ⚠️ 1/2 |
 
 ---
 
@@ -91,28 +91,20 @@
 
 **📄 Klausul kontrak:** Vendor membagikan data pribadi ke pihak ketiga tanpa persetujuan.
 
-**Hasil sistem:** ❌ menemukan 0 dari 3 pasal kunci · urutan temuan: Pasal 60, Pasal 55, Pasal 13, Pasal 56, Pasal 3
+**Hasil sistem:** ❌ menemukan 0 dari 2 pasal kunci · urutan temuan: Pasal 60, Pasal 55, Pasal 13, Pasal 56, Pasal 3
 
-**💬 Alasan Claude memilih kunci ini:** kasus gagal nomic dari BE-06; 65 ayat (2) mengungkapkan, 20 dasar pemrosesan
+**💬 Alasan Claude memilih kunci ini:** 51 dibuang: 'pihak ketiga' terlalu umum, belum tentu subkontraktor (keputusan Daniel)
 
 ### 🟡 KUNCI JAWABAN (gold) — benar relevan?
 
-- [ ] **Pasal 51** · ❌ tidak ditemukan
-  > (1) Dalam hal Pengendali Data Pribadi menunjuk Prosesor Data Pribadi, Prosesor Data Pribadi wajib melakukan pemrosesan Data Pribadi berdasarkan perintah Pengendali Data Pribadi.
-  > (2) Pemrosesan Data Pribadi sebagaimana dimaksud pada ayat (1), dilaksanakan sesuai ketentuan yang diatur dalam Undang-Undang ini.
-  > (3) Pemrosesan Data Pribadi sebagaimana dimaksud pada ayat (1) termasuk dalam tanggung jawab Pengendali Data Pribadi.
-  > (4) Prosesor Data Pribadi dapat melibatkan Prosesor Data Pribadi lain dalam melakukan pemrosesan Data Pribadi.
-  > (5) Prosesor Data Pribadi wajib mendapatkan persetqiuan tertulis dari Pengendali Data Pribadi sebelum melibatkan Prosesor Data Pribadi lain sebagaimana dimaksud pada ayat (4).
-  > (6) Dalam hal Prosesor Data Pribadi melakukan pemrosesan Data Pribadi di luar perintah dan tujuan yang ditetapkan Pengendali Data Pribadi, pemosesan Data Pribadi menjadi tanggung jawab Prosesor Data Pribadi.
+- [ ] **Pasal 20** · ❌ tidak ditemukan
+  > (1) Pengendali Data Pribadi wajib memiliki dasar pemrosesan Data Pribadi.
+  > (2) Dasar pernmsesan Data Pribadi sebagaimana dimaksud pada ayat (1) meliputi: a. persetujuan yang sah secara eksplisit dari Subjek Data Pribadi untuk 1 (sahr) atau beberapa tujuan tertentu yang telah disampait<an oleh Pengendali Data Pribadi kepada Subjek Data Pribadi; b. pemenuhan kewajiban perjanjian dalam hal Subjek Data Pribadi merupakan salah satu pihak atau untuk memenuhi permintaan Subjek Data Pribadi pada saat akan melalrukan pedanjian; c. pemenuhan kewajiban hukum dari Pengendali Data Pribadi sesuai dengan ketentuan peraturan perundang-undangan; d. pemenuhan pelindungan kepentingan vital Subjek Data Pribadi; e. pelaksanaan tugas dalam rangka kepentJngan umum, pelayanan publik, atau pelaksanaan . kewenangan Pengendali Data Pribadi berdasarkan peraturan perundang-undangan; dan/atau f. pemenuhan kepentingan yang sah lainnya dengan memperhatikan tujuan, kebututran, dan keseimbangan kepentingan Pengendali Data Pribadi dan hak Subjek Data Pribadi.
 
 - [ ] **Pasal 65** · ❌ tidak ditemukan
   > (1) Setiap Orang dilarang secara melawan hukum memperoleh atau mengumpulkan Data Pribadi yang bukan miliknya dengan maksud untuk menguntungkan diri sendiri atau orang lain yang dapat mengakibatkan kerugian Subjek Data Pribadi.
   > (2) Setiap Orang dilarang secara melawan hukum mengungkapkan Data Pribadi yang bukan miliknya. dilarang secara melawan hukum Data Pribadi yang bukan miliknya.
   > (3) Setiap Orang Pasal 66. . .
-
-- [ ] **Pasal 20** · ❌ tidak ditemukan
-  > (1) Pengendali Data Pribadi wajib memiliki dasar pemrosesan Data Pribadi.
-  > (2) Dasar pernmsesan Data Pribadi sebagaimana dimaksud pada ayat (1) meliputi: a. persetujuan yang sah secara eksplisit dari Subjek Data Pribadi untuk 1 (sahr) atau beberapa tujuan tertentu yang telah disampait<an oleh Pengendali Data Pribadi kepada Subjek Data Pribadi; b. pemenuhan kewajiban perjanjian dalam hal Subjek Data Pribadi merupakan salah satu pihak atau untuk memenuhi permintaan Subjek Data Pribadi pada saat akan melalrukan pedanjian; c. pemenuhan kewajiban hukum dari Pengendali Data Pribadi sesuai dengan ketentuan peraturan perundang-undangan; d. pemenuhan pelindungan kepentingan vital Subjek Data Pribadi; e. pelaksanaan tugas dalam rangka kepentJngan umum, pelayanan publik, atau pelaksanaan . kewenangan Pengendali Data Pribadi berdasarkan peraturan perundang-undangan; dan/atau f. pemenuhan kepentingan yang sah lainnya dengan memperhatikan tujuan, kebututran, dan keseimbangan kepentingan Pengendali Data Pribadi dan hak Subjek Data Pribadi.
 
 ### ⚪ Temuan sistem di luar kunci — ada yang ternyata relevan?
 
@@ -289,19 +281,22 @@
 
 **📄 Klausul kontrak:** Vendor tidak bertanggung jawab atas akses tidak sah ke sistem yang menyimpan data.
 
-**Hasil sistem:** ⚠️ menemukan 1 dari 2 pasal kunci · urutan temuan: Pasal 39, Pasal 38, Pasal 47, Pasal 3, Pasal 13
+**Hasil sistem:** ⚠️ menemukan 1 dari 3 pasal kunci · urutan temuan: Pasal 39, Pasal 38, Pasal 47, Pasal 3, Pasal 13
 
-**💬 Alasan Claude memilih kunci ini:** cegah akses tidak sah, langkah teknis keamanan
+**💬 Alasan Claude memilih kunci ini:** 52 memberlakukan kewajiban keamanan pengendali ke prosesor/vendor (keputusan Daniel)
 
 ### 🟡 KUNCI JAWABAN (gold) — benar relevan?
+
+- [ ] **Pasal 35** · ❌ tidak ditemukan
+  > Pengendali Data Pribadi wajib melindungi dan memastikan keamanan Data Pribadi yang diprosesnya, dengan melakukan: a. pen]rusunan . . . a. penyusunan dan penerapan langkah teknis ' operasional untuk melindungi Data Pribadi dari gangguan pemrosesan Data Pribadi yang bertentangan dengan ketentuan peraturan perundang-undangan; dan b. penentuan tingkat keamanan Data Pribadi dengan memperhatikan sifat dan risiko dari Data Pribadi yang harus dilindungi dalam pemrosesan Data Pribadi.
 
 - [ ] **Pasal 39** · ✅ ditemukan (peringkat 1)
   > (1) Pengendali Data Pribadi wajib mencegah Data Pribadi diakses secara tidak sah.
   > (2) Pencegahan sebagaimana dimaksud pada ayat (1) dilakukan dengan sistem keamanan terhadap Data Pribadi yang diproses dan/ atau memproses Data Pribadi sistem elektronik secara andal, aman, dan bertanggung jawab.
   > (3) Pencegahan sebagaimana dimaksud pada ayat (21 dilakukan sesuai dengan ketentuan peraturan perundang-undangan.
 
-- [ ] **Pasal 35** · ❌ tidak ditemukan
-  > Pengendali Data Pribadi wajib melindungi dan memastikan keamanan Data Pribadi yang diprosesnya, dengan melakukan: a. pen]rusunan . . . a. penyusunan dan penerapan langkah teknis ' operasional untuk melindungi Data Pribadi dari gangguan pemrosesan Data Pribadi yang bertentangan dengan ketentuan peraturan perundang-undangan; dan b. penentuan tingkat keamanan Data Pribadi dengan memperhatikan sifat dan risiko dari Data Pribadi yang harus dilindungi dalam pemrosesan Data Pribadi.
+- [ ] **Pasal 52** · ❌ tidak ditemukan
+  > Ketentuan mengenai kewajiban Pengendali Data Pribadi sebagaimana dimaksud dalam Pasal 29, Pasal 31, Pasal 35, Pasal 36, Pasal 37, Pasal 38, dan Pasal 39 berlaku juga terhadap Prosesor Data Pribadi. Bagran Bagian Keempat Pejabat atau Petugas yang Melaksanakan Fungsi Pelindungan Data Pribadi
 
 ### ⚪ Temuan sistem di luar kunci — ada yang ternyata relevan?
 
@@ -843,7 +838,9 @@
 
 **📄 Klausul kontrak:** Vendor tidak wajib memastikan keakuratan dan konsistensi data yang diolahnya.
 
-**Hasil sistem:** ✅ menemukan 1 dari 1 pasal kunci · urutan temuan: Pasal 29, Pasal 35, Pasal 54, Pasal 56, Pasal 21
+**Hasil sistem:** ⚠️ menemukan 1 dari 2 pasal kunci · urutan temuan: Pasal 29, Pasal 35, Pasal 54, Pasal 56, Pasal 21
+
+**💬 Alasan Claude memilih kunci ini:** 52 memberlakukan Pasal 29 ke prosesor/vendor (keputusan Daniel)
 
 ### 🟡 KUNCI JAWABAN (gold) — benar relevan?
 
@@ -851,6 +848,9 @@
   > (1) Pengendali Data Pribadi wajib memastikan akurasi, kelengkapan, dan konsistensi Data Pribadi sesuai dengan ketentuan peraturan perundang-undangan.
   > (2) Dalam . . .
   > (2) Dalam memastikan akurasi, kelengkapan, dan konsistensi Data Pribadi sebagaimana dimaksud pada ayat (1) Pengendali Data Pribadi wajib melakukan verifikasi.
+
+- [ ] **Pasal 52** · ❌ tidak ditemukan
+  > Ketentuan mengenai kewajiban Pengendali Data Pribadi sebagaimana dimaksud dalam Pasal 29, Pasal 31, Pasal 35, Pasal 36, Pasal 37, Pasal 38, dan Pasal 39 berlaku juga terhadap Prosesor Data Pribadi. Bagran Bagian Keempat Pejabat atau Petugas yang Melaksanakan Fungsi Pelindungan Data Pribadi
 
 ### ⚪ Temuan sistem di luar kunci — ada yang ternyata relevan?
 
@@ -891,7 +891,9 @@
 
 **📄 Klausul kontrak:** Vendor tidak menanggung ganti rugi kepada pemilik data atas pelanggaran pemrosesan data pribadi.
 
-**Hasil sistem:** ✅ menemukan 2 dari 2 pasal kunci · urutan temuan: Pasal 12, Pasal 47, Pasal 38, Pasal 34, Pasal 9
+**Hasil sistem:** ✅ menemukan 1 dari 1 pasal kunci · urutan temuan: Pasal 12, Pasal 47, Pasal 38, Pasal 34, Pasal 9
+
+**💬 Alasan Claude memilih kunci ini:** 47 dibuang karena terlalu umum (keputusan Daniel)
 
 ### 🟡 KUNCI JAWABAN (gold) — benar relevan?
 
@@ -900,11 +902,9 @@
   > (2) Ketentuan . . .
   > (2) Ketentuan lebih lanjut mengenai pelanggaran pemrosesan Data Pribadi dan tata cara pengenaan ganti rugi sebagaimana dimaksud pada ayat (1) diatur dalam Peraturan Pemerintah.
 
-- [ ] **Pasal 47** · ✅ ditemukan (peringkat 2)
-  > Pengendali Data Pribadi wajib bertanggung jawab atas pemrosesan Data Pribadi dan menunjukkan pertanggungiawaban dalam kewajiban pelaksanaan prinsip Pelindungan Data Pribadi.
-
 ### ⚪ Temuan sistem di luar kunci — ada yang ternyata relevan?
 
+- [ ] **Pasal 47** (peringkat 2): Pengendali Data Pribadi wajib bertanggung jawab atas pemrosesan Data Pribadi dan menunjukkan pertanggungiawaban dalam kewajiban pelaksanaan prinsip Pelindungan Data Pribadi.
 - [ ] **Pasal 38** (peringkat 3): Pengendali Data Pribadi wajib melindungi Data Pribadi dari pemrosesan yang tidak sah.
 - [ ] **Pasal 34** (peringkat 4): (1) Pengendali Data Pribadi wajib melakukan penilaian dampak Pelindungan Data Pribadi dalam hal pemrosesan Data Pribadi memiliki potensi risiko tinggi terhadap Subjek Data Pribadi. (2) Pemrosesan Data Pribadi memiliki po…
 - [ ] **Pasal 9** (peringkat 5): Subjek Data Pribadi berhak menarik kembali persetqjuan pemrosesan Data Pribadi tentang dirinya yang telah diberikan kepada Pengendali Data Pribadi.
@@ -1101,13 +1101,18 @@
 
 **📄 Klausul kontrak:** Data pribadi tetap diproses vendor setelah tujuan kontrak tercapai.
 
-**Hasil sistem:** ✅ menemukan 1 dari 1 pasal kunci · urutan temuan: Pasal 42, Pasal 28, Pasal 75, Pasal 27, Pasal 21
+**Hasil sistem:** ⚠️ menemukan 1 dari 2 pasal kunci · urutan temuan: Pasal 42, Pasal 28, Pasal 75, Pasal 27, Pasal 21
+
+**💬 Alasan Claude memilih kunci ini:** 43 ayat (1) huruf a: hapus data yang tidak diperlukan lagi (keputusan Daniel)
 
 ### 🟡 KUNCI JAWABAN (gold) — benar relevan?
 
 - [ ] **Pasal 42** · ✅ ditemukan (peringkat 1)
   > (1) Pengendali Data Pribadi wajib mengakhiri pemrosesan Data Pribadi dalam hal: terdapat ketentuan undangan yang tidak UBLIK INDONESIA a. telah mencapai masa retensi; b. tujuan pemrosesan Data Pribadi telah tercapai; atau c. terdapat permintaan dari Subjek Data Pribadi.
   > (2) Pengakhiran pemrosesan Data Pribadi sebagaimana dimaksud pada ayat (1) dilakukan sesuai dengan ketentuan peraturan perundang-undangan.
+
+- [ ] **Pasal 43** · ❌ tidak ditemukan
+  > (1) Pengendali Data Pribadi wajib menghapus Data Pribadi dalam hal: a. Data Pribadi tidak lagi diperlukan untuk pencapaian tujuan pemrosesan Data Pribadi; b. Subjek Data Pribadi telah melakukan penarikan kembali persetqiuan pemrosesan Data Pribadi; c. terdapat permintaan dari Subjek Data Pribadi; atau d. Data Pribadi diperoleh dan/ atau diproses dengan cara melawan hukum. (21 Data Pribadi sebagaimana dimaksud pada ayat (1) dilakukan sesuai dengan ketentuan peraturan perundang-undangan.
 
 ### ⚪ Temuan sistem di luar kunci — ada yang ternyata relevan?
 
