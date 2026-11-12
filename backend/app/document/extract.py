@@ -7,9 +7,11 @@ Koordinat selalu dalam satuan titik PDF (1/72 inci), sama dengan sistem koordina
 from __future__ import annotations
 
 import argparse
+import io
 import json
 import sys
 from dataclasses import asdict, dataclass, field
+from pathlib import Path
 
 import pymupdf
 
@@ -18,6 +20,8 @@ from app.config import TESSERACT_CMD
 MIN_CHARS = 40          # di bawah ini halaman dianggap tidak punya teks digital
 SCAN_COVER = 0.5        # gambar menutupi >= 50% halaman -> kandidat hasil scan
 OCR_DPI = 300
+MAX_PIXELS = 4000       # sisi terpanjang gambar untuk OCR; foto HP 12 MP jangan dibesarkan lagi
+IMAGE_EXT = {".jpg", ".jpeg", ".png", ".bmp", ".tif", ".tiff", ".webp"}
 LOW_CONF = 60           # rata-rata keyakinan Tesseract (0-100) di bawah ini -> perlu dicek manusia
 INVISIBLE = 3           # jenis teks di get_texttrace(): 3 = teks tak terlihat (lapisan OCR scan)
 
@@ -99,7 +103,8 @@ def read_ocr(page: pymupdf.Page, num: int, reason: str) -> Page:
     from PIL import Image
 
     langs = ocr_langs()
-    pix = page.get_pixmap(dpi=OCR_DPI)
+    dpi = min(OCR_DPI, int(72 * MAX_PIXELS / max(page.rect.width, page.rect.height)))
+    pix = page.get_pixmap(dpi=dpi)
     img = Image.frombytes("RGB" if pix.n < 4 else "RGBA", (pix.width, pix.height), pix.samples)
     d = pytesseract.image_to_data(img, lang=langs, output_type=pytesseract.Output.DICT)
 
@@ -125,9 +130,28 @@ def read_ocr(page: pymupdf.Page, num: int, reason: str) -> Page:
                 words, conf, needs_review=conf is None or conf < LOW_CONF)
 
 
+def open_document(path: str) -> pymupdf.Document:
+    """PDF dibuka apa adanya; foto (JPG/PNG/...) dijadikan PDF satu halaman.
+
+    Rotasi EXIF dari HP diterapkan dulu, supaya foto yang diambil tegak tidak terbaca miring.
+    """
+    if Path(path).suffix.lower() not in IMAGE_EXT:
+        return pymupdf.open(path)
+    from PIL import Image, ImageOps
+
+    with Image.open(path) as im:
+        im = ImageOps.exif_transpose(im).convert("RGB")
+        buf = io.BytesIO()
+        im.save(buf, "PNG")
+    doc = pymupdf.open()
+    page = doc.new_page(width=im.width, height=im.height)
+    page.insert_image(page.rect, stream=buf.getvalue())
+    return doc
+
+
 def extract(path: str, force_ocr: bool = False) -> list[Page]:
     pages = []
-    with pymupdf.open(path) as doc:
+    with open_document(path) as doc:
         for num, page in enumerate(doc, start=1):
             method, reason = ("ocr", "dipaksa --force-ocr") if force_ocr else route(page)
             try:
@@ -144,8 +168,8 @@ def extract(path: str, force_ocr: bool = False) -> list[Page]:
 
 
 if __name__ == "__main__":
-    ap = argparse.ArgumentParser(description="Ekstrak teks PDF per halaman (teks digital / OCR).")
-    ap.add_argument("pdf")
+    ap = argparse.ArgumentParser(description="Ekstrak teks PDF/foto per halaman (teks digital / OCR).")
+    ap.add_argument("pdf", help="file PDF atau foto (JPG/PNG)")
     ap.add_argument("--json", help="simpan hasil lengkap (teks + kata + koordinat) ke file ini")
     ap.add_argument("--show", help="tampilkan teks halaman tertentu, mis. 1,3")
     ap.add_argument("--force-ocr", action="store_true", help="OCR semua halaman (untuk uji kualitas OCR)")
