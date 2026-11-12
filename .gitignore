@@ -1,0 +1,12 @@
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# Secrets
+.env
+
+# Uploaded documents and generated data
+data/*
+!data/.gitkeep
