@@ -24,6 +24,7 @@ MAX_PIXELS = 4000       # sisi terpanjang gambar untuk OCR; foto HP 12 MP jangan
 IMAGE_EXT = {".jpg", ".jpeg", ".png", ".bmp", ".tif", ".tiff", ".webp"}
 LOW_CONF = 60           # rata-rata keyakinan Tesseract (0-100) di bawah ini -> perlu dicek manusia
 INVISIBLE = 3           # jenis teks di get_texttrace(): 3 = teks tak terlihat (lapisan OCR scan)
+MAX_TILT = 0.1          # baris dengan kemiringan > ~6 derajat dianggap watermark ("CONFIDENTIAL", "DRAFT")
 
 
 @dataclass
@@ -73,8 +74,26 @@ def route(page: pymupdf.Page) -> tuple[str, str]:
 
 
 def read_digital(page: pymupdf.Page, num: int, reason: str) -> Page:
-    words = [Word(w[4], tuple(round(v, 2) for v in w[:4])) for w in page.get_text("words", sort=True)]
-    return Page(num, "pdf_text", reason, page.get_text("text", sort=True), words)
+    """Ambil teks digital, buang baris miring (watermark) supaya tidak tercampur ke kalimat."""
+    tp = page.get_textpage()
+    keep, blocks = set(), []
+    for b in tp.extractDICT()["blocks"]:
+        if b["type"] != 0:
+            continue
+        lines = []
+        for li, line in enumerate(b["lines"]):
+            if abs(line["dir"][1]) > MAX_TILT:
+                continue
+            keep.add((b["number"], li))
+            lines.append("".join(s["text"] for s in line["spans"]))
+        if lines:
+            blocks.append((round(b["bbox"][1]), b["bbox"][0], b["number"], "\n".join(lines)))
+    blocks.sort()  # atas ke bawah, lalu kiri ke kanan
+    rank = {b[2]: i for i, b in enumerate(blocks)}
+    words = sorted((w for w in tp.extractWORDS() if (w[5], w[6]) in keep),
+                   key=lambda w: (rank[w[5]], w[6], w[7]))
+    return Page(num, "pdf_text", reason, "\n".join(b[3] for b in blocks),
+                [Word(w[4], tuple(round(v, 2) for v in w[:4])) for w in words])
 
 
 _langs: str | None = None

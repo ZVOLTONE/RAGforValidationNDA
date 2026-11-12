@@ -10,3 +10,8 @@ chroma_db/
 
 CLAUDE.local.md
 .claude/settings.local.json
+
+data/samples/*
+!data/samples/nda_contoh.pdf
+
+8EhmwQwR - ragforvalidationnda.json

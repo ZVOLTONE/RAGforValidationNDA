@@ -16,7 +16,7 @@ from pathlib import Path
 import pymupdf
 from PIL import Image, ImageFilter
 
-from app.document.extract import extract
+from app.document.extract import extract, read_digital
 
 HERE = Path(__file__).parent
 SAMPLES = HERE.parents[1] / "data" / "samples"
@@ -95,7 +95,7 @@ def make_scan(src: Path, dst: Path, variant: str) -> None:
                 data = buf.getvalue()
             new = out.new_page(width=page.rect.width, height=page.rect.height)
             new.insert_image(new.rect, stream=data)
-    out.save(dst)
+    out.save(dst, garbage=3, deflate=True)
 
 
 def norm(text: str) -> str:
@@ -152,10 +152,9 @@ def main():
     ap.add_argument("pdf", nargs="*", help="PDF digital sebagai kunci jawaban (default: contoh NDA)")
     ap.add_argument("--foto", nargs="+", metavar="FILE",
                     help="foto/scan asli dari kunci jawaban, urut per halaman (JPG/PNG/PDF); "
-                         "kalau diisi, versi scan buatan dilewati")
-    ap.add_argument("--out", help="default: eval/ocr_results.md, atau eval/ocr_results_foto.md untuk --foto")
+                         "dites bersama versi scan buatan, hasilnya masuk rapor yang sama")
+    ap.add_argument("--out", default=str(HERE / "ocr_results.md"))
     a = ap.parse_args()
-    a.out = a.out or str(HERE / ("ocr_results_foto.md" if a.foto else "ocr_results.md"))
 
     pdfs = [Path(p) for p in a.pdf]
     if not pdfs:
@@ -168,23 +167,25 @@ def main():
     rows, errors = [], []
     for src in pdfs:
         with pymupdf.open(src) as doc:
-            truth = [norm(p.get_text("text", sort=True)) for p in doc]
-        if a.foto:
-            score(src.stem, "foto", ", ".join(Path(f).name for f in a.foto), truth, a.foto, rows, errors)
-            continue
+            truth = [norm(read_digital(p, n, "").text) for n, p in enumerate(doc, start=1)]
         for variant, desc in VARIANTS.items():
             scan = SAMPLES / f"{src.stem}_scan_{variant}.pdf"
             make_scan(src, scan, variant)
             score(src.stem, variant, desc, truth, [str(scan)], rows, errors)
+        if a.foto:
+            score(src.stem, "foto", ", ".join(Path(f).name for f in a.foto), truth, a.foto, rows, errors)
 
     lines = ["# Akurasi OCR (Tesseract)", "",
-             "Kunci jawaban = teks PDF digital. Versi scan dibuat dari PDF yang sama lalu dibaca lewat "
-             "`app.document.extract`. Akurasi = 1 - (jumlah huruf/kata salah, hilang, atau berlebih) / "
-             "jumlah huruf/kata asli.", "",
+             "Kunci jawaban = teks PDF digital. Versi scan dibuat dari PDF yang sama; versi foto adalah "
+             "foto HP asli (`--foto`). Semua dibaca lewat `app.document.extract`. "
+             "Akurasi = 1 - (jumlah huruf/kata salah, hilang, atau berlebih) / jumlah huruf/kata asli.", "",
              "| Dokumen | Scan | Kondisi | Hal | Akurasi huruf | Akurasi kata | Keyakinan Tesseract | Detik/hal |",
              "|---|---|---|---|---|---|---|---|"]
     for r in rows:
         lines.append(f"| {r[0]} | {r[1]} | {r[2]} | {r[3]} | {r[4]:.1%} | {r[5]:.1%} | {r[6]:.1f} | {r[7]:.1f} |")
+    if not a.foto:
+        lines += ["", "Foto HP tidak dites kali ini; jalankan dengan `--foto hal1.jpeg hal2.jpeg` "
+                      "supaya baris foto ikut masuk."]
     lines += ["", f"## Contoh kesalahan ({len(errors)})", "", "Format: \"teks asli\" -> \"hasil OCR\"", ""]
     lines += [f"- {e}" for e in errors]
     Path(a.out).write_text("\n".join(lines) + "\n", encoding="utf-8")
