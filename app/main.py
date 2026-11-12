@@ -14,7 +14,7 @@ app = FastAPI(
     version="0.1.0",
 )
 
-# Storage directory: backend/data/
+# Storage directory: data/ at the repository root
 BASE_DIR = Path(__file__).resolve().parent.parent
 UPLOAD_DIR = BASE_DIR / "data"
 

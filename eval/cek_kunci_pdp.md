@@ -3,10 +3,10 @@
 ## Cara pakai
 
 1. Baca **📄 Klausul kontrak**, lalu tanya: *kalau klausul ini ada di kontrak, pasal mana yang akan aku kutip sebagai bukti?*
-2. Bagian **🟡 KUNCI JAWABAN**: centang `[x]` kalau pasal itu memang relevan. Yang tidak relevan, hapus dari `gold` di `backend/eval/testset_pdp.json`.
+2. Bagian **🟡 KUNCI JAWABAN**: centang `[x]` kalau pasal itu memang relevan. Yang tidak relevan, hapus dari `gold` di `eval/testset_pdp.json`.
 3. Bagian **⚪ Temuan sistem**: centang `[x]` kalau ternyata relevan juga, lalu tambahkan ke `gold`.
 4. Nilai dengan hukum, bukan dengan skor. Jangan ubah kunci supaya angkanya naik.
-5. Selesai semua: `python -m eval.eval_retrieval` (dari folder `backend`), lalu ubah `status` di JSON.
+5. Selesai semua: `python -m eval.eval_retrieval` (dari root repo), lalu ubah `status` di JSON.
 
 **Arti tanda:** ✅ semua pasal kunci ketemu · ⚠️ sebagian ketemu · ❌ tidak ada yang ketemu. Sistem = bge-m3 hybrid, 5 hasil teratas. Teks pasal hasil OCR, jadi ada typo/kalimat terpotong dari sumbernya.
 
