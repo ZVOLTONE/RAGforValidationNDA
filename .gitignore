@@ -1,6 +1,7 @@
 venv/
+.venv/
 __pycache__/
-*.pyc
+*.py[cod]
 .env
 
 graphify-env/
@@ -10,3 +11,8 @@ chroma_db/
 
 CLAUDE.local.md
 .claude/settings.local.json
+
+# Uploaded documents (data/legal/ holds source PDFs and stays tracked)
+data/*
+!data/.gitkeep
+!data/legal/
