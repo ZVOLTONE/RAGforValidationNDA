@@ -5,6 +5,8 @@ import os
 
 import pymupdf
 from uuid import UUID, uuid4
+from app.clause_splitter import Clause, split_clauses
+from app.document.extract import extract as extract_pages
 from app.extractor import extract_pdf_text
 from fastapi import FastAPI, File, HTTPException, UploadFile, status
 
@@ -148,10 +150,9 @@ async def upload_pdf(file: UploadFile = File(...)):
 
         await file.close()
 
-@app.post("/documents/{document_id}/extract")
-def extract_document(document_id: str):
+def locate_document(document_id: str) -> tuple[UUID, Path]:
+    """Validate a document ID and return its stored PDF path."""
 
-    # 1. Validate document ID
     try:
         valid_id = UUID(document_id)
     except ValueError:
@@ -160,7 +161,6 @@ def extract_document(document_id: str):
             detail="Invalid document ID.",
         )
 
-    # 2. Find uploaded PDF
     pdf_path = UPLOAD_DIR / f"{valid_id}.pdf"
 
     if not pdf_path.is_file():
@@ -168,6 +168,15 @@ def extract_document(document_id: str):
             status_code=404,
             detail="Document not found.",
         )
+
+    return valid_id, pdf_path
+
+
+@app.post("/documents/{document_id}/extract")
+def extract_document(document_id: str):
+
+    # 1-2. Validate document ID and find the uploaded PDF
+    valid_id, pdf_path = locate_document(document_id)
 
     # 3. Extract PDF content
     pages = extract_pdf_text(str(pdf_path))
@@ -178,3 +187,17 @@ def extract_document(document_id: str):
         "total_pages": len(pages),
         "pages": pages,
     }
+
+
+@app.post("/documents/{document_id}/clauses", response_model=list[Clause])
+def document_clauses(document_id: str, force_ocr: bool = False):
+    """Split an already uploaded document into clauses (BE-05).
+
+    Reuses the existing pipeline: BE-04 routes each page to digital text or OCR,
+    then BE-05 splits the page text into clauses. Nothing is re-extracted in a
+    different way, so the returned text is the same text BE-03/BE-04 produce.
+    """
+
+    valid_id, pdf_path = locate_document(document_id)
+    pages = extract_pages(str(pdf_path), force_ocr=force_ocr)
+    return split_clauses(pages, document_id=str(valid_id))
