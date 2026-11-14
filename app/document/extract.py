@@ -7,6 +7,7 @@ Koordinat selalu dalam satuan titik PDF (1/72 inci), sama dengan sistem koordina
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 import sys
 from dataclasses import asdict, dataclass, field
@@ -143,10 +144,50 @@ def extract(path: str, force_ocr: bool = False) -> list[Page]:
     return pages
 
 
+TSV_COLUMNS = (
+    "page_number", "extraction_method", "reason", "word_index", "word_text",
+    "x0", "y0", "x1", "y1", "word_confidence", "page_confidence",
+    "needs_review", "page_text", "error",
+)
+
+
+def export_tsv(pages: list[Page], output_path: str) -> None:
+    """Tulis hasil ekstraksi ke TSV, satu baris per kata (untuk cek manual/grep).
+
+    Halaman tanpa kata tetap dapat satu baris berisi kolom halaman saja. Kolom
+    yang memang tidak ada (bbox/confidence) dibiarkan kosong, tidak dikarang.
+    Teks halaman dan teks kata ditulis apa adanya lewat modul csv, jadi tab,
+    tanda kutip, dan baris baru dalam teks tetap aman.
+    """
+    with open(output_path, "w", encoding="utf-8", newline="") as f:
+        writer = csv.writer(f, delimiter="\t")
+        writer.writerow(TSV_COLUMNS)
+        for page in pages:
+            head = [page.number, page.method, page.reason]
+            tail = [
+                "" if page.confidence is None else page.confidence,
+                "true" if page.needs_review else "false",
+                page.text,
+                page.error or "",
+            ]
+            if not page.words:
+                writer.writerow(head + [""] * 7 + tail)
+                continue
+            for index, word in enumerate(page.words):
+                box = list(word.bbox) if word.bbox and len(word.bbox) >= 4 else None
+                writer.writerow(
+                    head
+                    + [index, word.text, *(box if box else [""] * 4),
+                       "" if word.conf is None else word.conf]
+                    + tail
+                )
+
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(description="Ekstrak teks PDF per halaman (teks digital / OCR).")
     ap.add_argument("pdf")
     ap.add_argument("--json", help="simpan hasil lengkap (teks + kata + koordinat) ke file ini")
+    ap.add_argument("--tsv", metavar="OUTPUT_FILE", help="simpan hasil kata-per-baris ke file TSV ini")
     ap.add_argument("--show", help="tampilkan teks halaman tertentu, mis. 1,3")
     ap.add_argument("--force-ocr", action="store_true", help="OCR semua halaman (untuk uji kualitas OCR)")
     a = ap.parse_args()
@@ -167,3 +208,6 @@ if __name__ == "__main__":
         with open(a.json, "w", encoding="utf-8") as f:
             json.dump([asdict(p) for p in result], f, ensure_ascii=False, indent=1)
         print(f"\nHasil disimpan ke {a.json}")
+    if a.tsv:
+        export_tsv(result, a.tsv)
+        print(f"\nTSV disimpan ke {a.tsv}")

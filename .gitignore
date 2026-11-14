@@ -11,6 +11,7 @@ chroma_db/
 
 CLAUDE.local.md
 .claude/settings.local.json
+context.md
 
 # Uploaded documents (data/legal/ holds source PDFs and stays tracked)
 data/*
