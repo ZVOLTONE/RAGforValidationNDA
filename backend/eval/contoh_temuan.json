@@ -1,0 +1,28 @@
+[
+ {
+  "finding_id": "FINDING-001",
+  "risk_level": "high",
+  "finding_type": "contractual_gap",
+  "validation_status": "validated",
+  "reasoning_summary": "Contoh: batas waktu pelaporan insiden perlu dicek terhadap UU PDP Pasal 46.",
+  "recommendation": "Pastikan batas waktu pelaporan tertulis dan dapat dipenuhi vendor.",
+  "evidence": [{"page_number": 2, "quote": "melaporkan setiap Insiden Keamanan kepada Pihak Pertama paling lambat 3 x 24 jam"}]
+ },
+ {
+  "finding_id": "FINDING-002",
+  "risk_level": "medium",
+  "finding_type": "weak_control",
+  "validation_status": "validated",
+  "reasoning_summary": "Contoh: pembatasan akses belum menyebut kapan akses dicabut.",
+  "recommendation": "Tambahkan kewajiban mencabut akses saat pekerjaan atau perjanjian berakhir.",
+  "evidence": [{"page_number": 1, "quote": "membatasi akses hanya kepada personel yang memerlukan untuk pelaksanaan pekerjaan"}]
+ },
+ {
+  "finding_id": "FINDING-003",
+  "risk_level": "low",
+  "finding_type": "contractual_gap",
+  "validation_status": "pending",
+  "reasoning_summary": "Contoh temuan yang belum tervalidasi, jadi tidak di-highlight.",
+  "evidence": [{"page_number": 2, "quote": "menyerahkan berita acara penghapusan"}]
+ }
+]
