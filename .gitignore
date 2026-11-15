@@ -1,0 +1,32 @@
+# Local Python environment and configuration
+.venv/
+backend/RAG/.venv/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
+!**/.env.example
+
+# Uploaded contracts and generated job artifacts
+backend/confidai_data/*
+!backend/confidai_data/.gitkeep
+
+# Local vector index
+backend/RAG/chroma_store/
+backend/RAG/chroma_store_backup_incomplete/
+
+# Expo / Node build artifacts
+frontend/node_modules/
+frontend/.expo/
+frontend/web-build/
+frontend/dist/
+
+.agents/
+.codex/
+AssetVideo/
+Web-Demo/
+Video/
+Clone/
+prd.md
+UserFlow.jpg
