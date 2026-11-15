@@ -1,6 +1,6 @@
 # ConfidAI
 ## [Link Demo](https://demo-nda.vercel.app/)
-[Link Demo](Arsitektur.png)
+![Link Demo](Arsitektur.png)
 
 Repositori ini mengelompokkan layanan analisis dan aplikasi hybrid dalam dua
 direktori:
