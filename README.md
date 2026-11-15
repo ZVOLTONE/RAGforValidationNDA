@@ -64,6 +64,5 @@ unggahan, serta file hasil analisis dari storage backend.
 - [Arsitektur dan penggunaan backend](backend/README.md)
 - [Alur OCR](backend/docs/OCR_INPUT_PIPELINE.md)
 - [Pemetaan referensi hukum](backend/RAG/LEGAL_MAPPING.md)
-- [Status requirements RAG](backend/RAG/REQUIREMENTS_STATUS.md)
-- [PRD](prd.md)
+- [Status requirements RAG](backend/RAG/README.md)
 - [Requirements dan setup Linux/Windows](requirements.md)
