@@ -9,3 +9,51 @@
   --font-rounded: 'SF Pro Rounded', 'Hiragino Maru Gothic ProN', Meiryo, 'MS PGothic', sans-serif;
   --font-serif: Georgia, 'Times New Roman', serif;
 }
+
+html, body {
+  background-color: #111110 !important;
+  color: #F5F5F2 !important;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom scrollbar matching Web-Demo */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #141412;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2a27;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f3a;
+}
+
+/* Pipeline Neural Graph SVG animations */
+@keyframes pngRipple {
+  0% { transform: scale(0.85); opacity: 0.7; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+@keyframes pngDot {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.png-ripple {
+  transform-origin: center;
+  animation: pngRipple 2.2s cubic-bezier(0.2, 0.8, 0.4, 1) infinite;
+}
+
+.png-dot {
+  transform-origin: center;
+  animation: pngDot 1.4s ease-in-out infinite;
+}

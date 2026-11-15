@@ -2,22 +2,21 @@ import { useEffect, useState } from 'react';
 import { useColorScheme as useRNColorScheme } from 'react-native';
 
 /**
- * To support static rendering, this value needs to be re-calculated on the client side for web
+ * ConfidAI is a cybersecurity console defaulting to the dark aesthetic.
  */
 export function useColorScheme() {
   const [hasHydrated, setHasHydrated] = useState(false);
 
   useEffect(() => {
-    // Intentional post-hydration update avoids a server/client color mismatch.
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setHasHydrated(true);
   }, []);
 
   const colorScheme = useRNColorScheme();
 
-  if (hasHydrated) {
+  if (hasHydrated && colorScheme) {
     return colorScheme;
   }
 
-  return 'light';
+  return 'dark';
 }
+
