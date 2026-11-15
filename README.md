@@ -126,15 +126,16 @@ Pengembangan ConfidAI selanjutnya diarahkan untuk meningkatkan akurasi analisis,
 | Evaluation & Benchmarking | Mengembangkan dataset evaluasi dan pengujian terukur terhadap hasil analisis. | Mengukur performa dan konsistensi sistem secara objektif. |
 | Security & Deployment | Mengembangkan kontrol akses, pengelolaan data, dan opsi deployment lokal atau isolated environment. | Mendukung kebutuhan keamanan dan privasi organisasi. |
 | Mobile Experience | Mengoptimalkan antarmuka dan pengalaman penggunaan pada perangkat iOS dan Android. | Mempermudah akses dan peninjauan hasil analisis melalui perangkat mobile. |
-| On-device AI | Mengeksplorasi penggunaan model AI ringan yang dapat dijalankan langsung pada perangkat dengan kapasitas komputasi memadai. | Mengurangi ketergantungan pada server dan meningkatkan fleksibilitas penggunaan. |
+| On-device AI | Mengeksplorasi penggunaan model AI ringan yang dapat dijalankan langsung pada perangkat dengan kapasitas komputasi memadai. | Mengurangi ketergantungan device yang memiliki spesifikasi tinggi. |
 
 ### Visi Jangka Panjang
 
-ConfidAI diarahkan menjadi platform Cybersecurity Contract Intelligence yang akurat, adaptif, dan mudah diakses oleh berbagai organisasi.
 
-Dalam jangka panjang, ConfidAI ingin memperluas kemampuan analisis terhadap berbagai jenis perjanjian teknologi, memperkuat integrasi knowledge base, serta mengeksplorasi pemrosesan AI lokal untuk mendukung kebutuhan organisasi dengan tingkat keamanan yang berbeda.
+ConfidAI diarahkan menjadi platform Cybersecurity Contract Intelligence yang akurat, adaptif, dan mudah diakses oleh berbagai organisasi, dengan tetap mengutamakan keamanan dan kerahasiaan data agreement yang diproses.
 
-Tujuan akhirnya adalah menjadikan evaluasi keamanan kontrak sebagai bagian dari proses pencegahan risiko siber sejak awal kerja sama.
+Dalam jangka panjang, ConfidAI ingin memperluas kemampuan analisis terhadap berbagai jenis perjanjian teknologi, memperkuat integrasi knowledge base, serta mengeksplorasi pemrosesan AI lokal dan deployment pada lingkungan terisolasi (*isolated environment*). Pendekatan ini ditujukan untuk memberikan organisasi kontrol yang lebih besar terhadap penyimpanan, pemrosesan, dan akses dokumen perjanjian yang bersifat sensitif.
+
+Tujuan akhirnya adalah menjadikan evaluasi keamanan kontrak sebagai bagian dari proses pencegahan risiko siber sejak awal kerja sama, sekaligus menjaga kerahasiaan dan integritas data agreement agar informasi sensitif organisasi tetap terlindungi selama proses analisis.
 
 ---
 
